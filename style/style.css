@@ -1,4 +1,4 @@
-/* Default Style */
+/* Default Styles */
 * {
     margin: 0;
     padding: 0;
@@ -10,4 +10,40 @@
     font-size: 14px;
 }
 
-/*  */
+/* Structure Styles */
+.container {
+    text-align: center;
+    padding: 30px 0;
+}
+
+.container h1 {
+    font-size: 40px;
+    margin-bottom: 50px;
+}
+
+.wrapper {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.wrapper .row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.col {
+    width: 180px;
+    height: 180px;
+    margin-bottom: 10px;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    box-shadow: 0 6px 7px -4px gray;
+    background: lightblue;
+    cursor: pointer;
+}
