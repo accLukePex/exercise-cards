@@ -66,6 +66,7 @@ fetch(url)
     .catch(error => console.error('Error fetching the cat images:', error));
 
 
+// --------------------------------------
 
 
 /*
