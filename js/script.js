@@ -1,18 +1,15 @@
-
 // LOADER INIZIALE
 document.addEventListener("DOMContentLoaded", function() {
     // Nascondi il loader e mostra il contenuto della pagina
     const loader = document.getElementById("loader");
     const container = document.querySelector(".container");
-
+    
     // Aggiungi un piccolo ritardo per simulare il caricamento
     setTimeout(function() {
         loader.classList.add("hidden");
         container.style.display = "block";
     }, 2000); // 2 secondo di ritardo
 });
-
-
 
 // Inserisco il div row all'interno di una variabile
 const row = document.querySelector(".row");
@@ -47,6 +44,7 @@ function populateCardsWithImages(cats) {
     });
 }
 
+// FUNZIONE DI CARICAMENTO IMMAGINI TRAMITE API
 function loadCards() {
 
     // URL dell'API
@@ -59,14 +57,32 @@ function loadCards() {
             console.log(data);
             populateCardsWithImages(data);
         })
-        .catch(error => console.error('Error fetching the cat images:', error));
+        .catch(error => {
+            console.error('Error fetching the cat images:', error);
+            showError('Failed to load cat images. Please try again later.');
+        });
     }
+    
+// Inserisco il pulsante load-more dentro ad una variabile
+let loadmore = document.querySelector('.load-more');
 
+// FUNZIONE PER MESSAGGIO DI ERRORE
+function showError(message) {
+    const errorContainer = document.getElementById('error-container');
+    const errorCatImage = document.getElementById('error-cat-img');
+    errorContainer.innerHTML = message;
+
+    errorContainer.classList.remove('hidden');
+    errorCatImage.classList.remove('hidden');
+
+    loadmore.style.display = 'none';
+}
+
+
+// FUNZIONE DI CARICAMENTE NUOVE IMMAGINI
 function loadmoreCards() {
     // Inserisco il div mini-loader dentro ad una variabile
     const miniLoader = document.getElementById("mini-loader");
-    // Inserisco il pulsante load-more dentro ad una variabile
-    let loadmore = document.querySelector('.load-more');
 
     // Rimuovo la classe hidden dal mini-loader per renderlo visibile
     miniLoader.classList.remove("hidden");
@@ -74,13 +90,28 @@ function loadmoreCards() {
     loadmore.style.display = 'none';
     
     setTimeout(() => {
+        loadCards();
         miniLoader.classList.add("hidden");
         // Ri-aggiungo display: inline-block per rendere di nuovo visibile il pulsante
         loadmore.style.display = 'inline-block';
-        
-        loadCards().then(() => {});
-        }, 2000); // 2 secondi di durata del mini loader  
-        }
+    }, 1000); // 2 secondi di durata del mini loader 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // // Generiamo i quadrati
 // for (let i = 0;  i < 30; i++) {

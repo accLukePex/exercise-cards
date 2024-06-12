@@ -60,6 +60,21 @@
     margin-bottom: 50px;
 }
 
+.error-message {
+    color: red;
+    margin-top: 20px;
+    font-size: 22px;
+}
+
+#error-cat-img {
+    margin-top: 20px;
+    width: 150px;
+}
+
+.hidden {
+    display: none;
+}
+
 .wrapper {
     width: 80%;
     margin: 0 auto;
