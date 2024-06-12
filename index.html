@@ -9,15 +9,19 @@
     <link rel="stylesheet" href="style/style.css">
     <title>Cat Cards</title>
 </head>
-<body>
+<body onload="loadCards()">
+    <div id="loader" class="loader"></div>
     <div class="container">
         <h1>Cat Cards</h1>
 
         <div class="wrapper">
             <div class="row"></div>
         </div>
+        <div class="load-more-container">
+            <div id="mini-loader" class="mini-loader hidden"></div>
+        </div>
         
-        <button class="load-more">Load more</button>
+        <button class="load-more" onclick="loadmoreCards()">Load more</button>
     </div>
 
     <script src="js/script.js"></script>
