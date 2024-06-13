@@ -10,20 +10,28 @@
     <title>Cat Cards</title>
 </head>
 <body onload="loadCards()">
+
+    <!-- Main Loader -->
     <div id="loader" class="loader"></div>
+    <!-- Container principale -->
     <div class="container">
         <h1>Cat Cards</h1>
 
+        <!-- Box per messaggio/immagine di errore -->
         <div id="error-container" class="hidden error-message"></div>
         <img id="error-cat-img" class="hidden" src="images/crying-cat.svg" alt="">
 
+        <!-- Container griglia immagini gatti -->
         <div class="wrapper">
             <div class="row"></div>
         </div>
+
+        <!-- Mini Loader -->
         <div class="load-more-container">
             <div id="mini-loader" class="mini-loader hidden"></div>
         </div>
         
+        <!-- Pulsante generazione nuove immagini -->
         <button class="load-more" onclick="loadmoreCards()">Load more</button>
     </div>
 
