@@ -18,11 +18,6 @@ const row = document.querySelector(".row");
 function populateCardsWithImages(cats) {
 
     cats.forEach(cat => {
-        // Creiamo il div col generico
-        const col = document.createElement("div");
-        // Aggiungiamo la classe col
-        col.classList.add("col");
-
         // Creiamo il div card generico
         const card = document.createElement("div");
         // Aggiungiamo la classe col
@@ -35,12 +30,8 @@ function populateCardsWithImages(cats) {
         // Aggiungo l'immagine al div card
         card.append(img);
 
-        // Aggiungo la card alla col
-        col.append(card);
-
-        // Aggiungo il div alla row
-        row.append(col);
-
+        // Aggiungo la card alla row
+        row.append(card);
     });
 }
 
@@ -62,12 +53,12 @@ function loadCards() {
             showError('Failed to load cat images. Please try again later.');
         });
     }
-    
-// Inserisco il pulsante load-more dentro ad una variabile
-let loadmore = document.querySelector('.load-more');
 
 // FUNZIONE PER MESSAGGIO DI ERRORE
 function showError(message) {
+    // Inserisco il pulsante load-more dentro ad una variabile
+    let loadmore = document.querySelector('.load-more');
+
     const errorContainer = document.getElementById('error-container');
     const errorCatImage = document.getElementById('error-cat-img');
     errorContainer.innerHTML = message;
@@ -81,6 +72,9 @@ function showError(message) {
 
 // FUNZIONE DI CARICAMENTE NUOVE IMMAGINI
 function loadmoreCards() {
+    // Inserisco il pulsante load-more dentro ad una variabile
+    let loadmore = document.querySelector('.load-more');
+    
     // Inserisco il div mini-loader dentro ad una variabile
     const miniLoader = document.getElementById("mini-loader");
 
