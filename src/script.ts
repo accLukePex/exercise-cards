@@ -1,8 +1,8 @@
 // LOADER INIZIALE
 document.addEventListener("DOMContentLoaded", function() {
     // Nascondi il loader e mostra il contenuto della pagina
-    const loader = document.getElementById("loader");
-    const container = document.querySelector(".container");
+    const loader = document.getElementById("loader") as HTMLElement;
+    const container = document.querySelector(".container") as HTMLElement;
     
     // Aggiungi un piccolo ritardo per simulare il caricamento
     setTimeout(function() {
@@ -12,10 +12,12 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // Inserisco il div row all'interno di una variabile
-const row = document.querySelector(".row");
+const row = document.querySelector(".row") as HTMLElement;
+
+type Cats = {id: string, url: string, width: number, heigth: number}
 
 // FUNZIONE PER POPOLARE LE CARD CON LE IMMAGINI DEI GATTI
-function populateCardsWithImages(cats) {
+function populateCardsWithImages(cats: Cats[]): void {
 
     cats.forEach(cat => {
         // Creiamo il div card generico
@@ -36,7 +38,7 @@ function populateCardsWithImages(cats) {
 }
 
 // FUNZIONE DI CARICAMENTO IMMAGINI TRAMITE API
-function loadCards() {
+function loadCards(): void {
 
     // URL dell'API
     const url = 'https://api.thecatapi.com/v1/images/search?limit=10';
@@ -44,7 +46,7 @@ function loadCards() {
     // Effettuo la chiamata GET usando fetch
     fetch(url)
         .then(response => response.json())
-        .then(data => {
+        .then((data: Cats[]) => {
             console.log(data);
             populateCardsWithImages(data);
         })
@@ -55,12 +57,12 @@ function loadCards() {
     }
 
 // FUNZIONE PER MESSAGGIO DI ERRORE
-function showError(message) {
+function showError(message: string): void {
     // Inserisco il pulsante load-more dentro ad una variabile
-    let loadmore = document.querySelector('.load-more');
+    let loadmore = document.querySelector('.load-more') as HTMLElement;
 
-    const errorContainer = document.getElementById('error-container');
-    const errorCatImage = document.getElementById('error-cat-img');
+    const errorContainer = document.getElementById('error-container') as HTMLElement;
+    const errorCatImage = document.getElementById('error-cat-img') as HTMLImageElement;
     errorContainer.innerHTML = message;
 
     errorContainer.classList.remove('hidden');
@@ -71,12 +73,12 @@ function showError(message) {
 
 
 // FUNZIONE DI CARICAMENTE NUOVE IMMAGINI
-function loadmoreCards() {
+function loadmoreCards(): void {
     // Inserisco il pulsante load-more dentro ad una variabile
-    let loadmore = document.querySelector('.load-more');
+    let loadmore = document.querySelector('.load-more') as HTMLElement;
     
     // Inserisco il div mini-loader dentro ad una variabile
-    const miniLoader = document.getElementById("mini-loader");
+    const miniLoader = document.getElementById("mini-loader") as HTMLElement;
 
     // Rimuovo la classe hidden dal mini-loader per renderlo visibile
     miniLoader.classList.remove("hidden");
