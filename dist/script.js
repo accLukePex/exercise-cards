@@ -22,6 +22,7 @@ function populateCardsWithImages(cats) {
         // Creo l'elemento img e imposto l'attributo src all'URL dell'immagine
         const img = document.createElement('img');
         img.src = cat.url;
+        img.setAttribute('tabindex', '0');
         // Aggiungo l'immagine al div card
         card.append(img);
         // Aggiungo la card alla row
@@ -54,6 +55,11 @@ function showError(message) {
     errorContainer.classList.remove('hidden');
     errorCatImage.classList.remove('hidden');
     loadmore.style.display = 'none';
+}
+function enterKey(event) {
+    if (event.key === 'Enter') {
+        loadmoreCards();
+    }
 }
 // FUNZIONE DI CARICAMENTE NUOVE IMMAGINI
 function loadmoreCards() {

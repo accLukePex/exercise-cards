@@ -29,6 +29,8 @@ function populateCardsWithImages(cats: Cats[]): void {
         const img = document.createElement('img');
         img.src = cat.url;
 
+        img.setAttribute('tabindex', '0');
+
         // Aggiungo l'immagine al div card
         card.append(img);
 
@@ -69,6 +71,13 @@ function showError(message: string): void {
     errorCatImage.classList.remove('hidden');
 
     loadmore.style.display = 'none';
+}
+
+function enterKey(event: KeyboardEvent): void {
+
+    if (event.key === 'Enter') {
+        loadmoreCards();
+    }
 }
 
 

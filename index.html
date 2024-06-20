@@ -15,15 +15,15 @@
     <div id="loader" class="loader"></div>
     <!-- Container principale -->
     <div class="container">
-        <h1>Cat Cards</h1>
+        <h1 tabindex="0">Cat Cards</h1>
 
         <!-- Box per messaggio/immagine di errore -->
         <div id="error-container" class="hidden error-message"></div>
         <img id="error-cat-img" class="hidden" src="images/crying-cat.svg" alt="">
 
         <!-- Container griglia immagini gatti -->
-        <div class="wrapper">
-            <div class="row"></div>
+        <div tabindex="0" class="wrapper">
+            <div tabindex="0" class="row"></div>
         </div>
 
         <!-- Mini Loader -->
@@ -32,7 +32,7 @@
         </div>
         
         <!-- Pulsante generazione nuove immagini -->
-        <button class="load-more" onclick="loadmoreCards()">Load more</button>
+        <button class="load-more" onkeydown="enterKey()" onclick="loadmoreCards()">Load more</button>
     </div>
 
     <script src="dist/script.js"></script>
